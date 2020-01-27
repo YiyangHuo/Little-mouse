@@ -4,13 +4,14 @@
 #@Author: Yiyang Huo
 #@File  : board.py
 #board contains virtual map, mouse, the detect map and control the whole game
+import os
+from src.virtualmap import Virtualmap
 
-
-map_location = os.path.join(os.path.dirname(__file__) + '/../docs/virtualmap.txt')
+map_location = os.path.join(os.path.dirname(__file__) + '/../docs/virtualmap.json')
 
 
 class Board:
     def __init__(self, virtual, startpoint):
-        self.mouse = Mouse(virtual, startpoint)
+        #self.mouse = Mouse(virtual, startpoint)
         if virtual:
             self.virtual_map = Virtualmap(map_location)

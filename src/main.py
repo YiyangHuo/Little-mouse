@@ -7,15 +7,9 @@ import os
 import sys
 from src import virtualmap
 from src import mouse
-
-
-
-def setup(initial_point, virtual):
-    if virtual:
-        with open(map_location, "r") as f:
-            print(f.read())
+from src.board import Board
 
 
 if __name__ == '__main__':
     print(sys.argv)
-    setup([0,0], True)
+    game_board = Board([0, 0], True)
