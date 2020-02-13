@@ -12,4 +12,4 @@ from src.board import Board
 
 if __name__ == '__main__':
     print(sys.argv)
-    game_board = Board([0, 0], True)
+    game_board = Board([0, 0])
