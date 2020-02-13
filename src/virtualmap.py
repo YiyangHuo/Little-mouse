@@ -42,7 +42,7 @@ class Virtualmap:
             wall[2] = look_walls[wall[2]][2]
             if self.withinRange([wall[0], wall[1]]):
                 self.themap_[wall[0]][wall[1]].walls_[wall[2]] = True
-        print("* * *\n*   *\n* * *")
+        #print("* * *\n*   *\n* * *")
         self.print()
     def withinRange(self, point):
         return self.map_length_ > point[0] >= 0 and self.map_length_ > point[1] >= 0
@@ -62,16 +62,18 @@ class Virtualmap:
                     if self.themap_[row][col].walls_[1]:
                         output += "   *"
                     else:
-                        output += "    "
+                        output += "   ."
 
                 elif line % 2 == 0: #横行
                     if self.themap_[row][col].walls_[2]:
                         output += " * *"
                     else:
                         if self.themap_[row][col].walls_[1]:
-                            output += "   *"
+                            output += " . *"
+                        elif row - 1 >= 0 and self.themap_[row-1][col].walls_[1]:
+                            output += " . *"
                         else:
-                            output += "    "
+                            output += " .  "
 
             output += "\n"
         print(output)
